@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loja - Produtos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1>Minha Loja</h1>
+      <div class="user-actions">
+        <button id="loginBtn" class="btn-secondary">Login</button>
+        <button id="cartToggle" class="cart-icon">
+          <span>🛒</span>
+          <span id="cartCount" class="cart-badge">0</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Products Grid -->
+      <section class="products-section">
+        <div id="productsGrid" class="products-grid">
+          <!-- Products will be loaded here -->
+        </div>
+        <div id="loadingProducts" class="loading">Carregando produtos...</div>
+        <div id="errorProducts" class="error" style="display: none;"></div>
+      </section>
+
+      <!-- Cart Sidebar -->
+      <aside id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+          <h2>Carrinho</h2>
+          <button id="closeCart" class="close-btn">✕</button>
+        </div>
+        
+        <div id="cartItems" class="cart-items">
+          <p class="empty-cart">Seu carrinho está vazio</p>
+        </div>
+        
+        <div class="cart-footer">
+          <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal">R$ 0,00</span>
+          </div>
+          <button id="checkoutBtn" class="btn-primary" disabled>Enviar Pedido</button>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Login</h2>
+        <button class="close-btn" onclick="closeModal('loginModal')">✕</button>
+      </div>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" required>
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Senha</label>
+          <input type="password" id="loginPassword" required>
+        </div>
+        <button type="submit" class="btn-primary">Entrar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div id="checkoutModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Finalizar Pedido</h2>
+        <button class="close-btn" onclick="closeModal('checkoutModal')">✕</button>
+      </div>
+      <form id="checkoutForm">
+        <div class="form-group">
+          <label for="customerName">Nome Completo *</label>
+          <input type="text" id="customerName" required>
+        </div>
+        <div class="form-group">
+          <label for="customerEmail">Email *</label>
+          <input type="email" id="customerEmail" required>
+        </div>
+        <div class="form-group">
+          <label for="customerPhone">Telefone *</label>
+          <input type="tel" id="customerPhone" required placeholder="(00) 00000-0000">
+        </div>
+        <div class="form-group">
+          <label for="customerCPF">CPF/CNPJ *</label>
+          <input type="text" id="customerCPF" required placeholder="000.000.000-00">
+        </div>
+        <div class="form-group">
+          <label for="customerAddress">Endereço Completo</label>
+          <textarea id="customerAddress" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Confirmar Pedido</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
